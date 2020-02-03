@@ -81,4 +81,8 @@ class AuthenticationController extends Controller
             return response()->json(['error'=>'Unauthorised'], 401);
         }
     }
+
+    public function testController () {
+        return response()->json(["OK" => "Controller works"]);
+    }
 }
