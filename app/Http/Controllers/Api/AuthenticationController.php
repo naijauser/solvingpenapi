@@ -50,7 +50,7 @@ class AuthenticationController extends Controller
         // $user->sendApiEmailVerificationNotification();
 
         //if the mail was successfully sent do below
-        $success['token'] = $user->createToken('token')->createToken;
+        $success['token'] = $user->createToken('token')->accessToken;
         $success['message'] = "You have registered successfully, check your email for activation link";
         $success['user_details'] = $user;
 
@@ -64,7 +64,7 @@ class AuthenticationController extends Controller
             // getting auth user after auth login
             $user = Auth::user();
 
-            $token = Auth::createToken('token')->accessToken;
+            $token = $user->createToken('token')->accessToken;
             $success['status'] = 'OK';
             $success['token'] = $token;
             $success['user'] = $user;

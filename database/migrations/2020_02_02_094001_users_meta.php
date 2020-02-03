@@ -25,7 +25,6 @@ class UsersMeta extends Migration
             $table->string('phone')->nullable();
             $table->unsignedInteger('points')->default(0)->nullable();
             $table->string('description', 1000)->nullable();
-            $table->rememberToken();
         });
 
         Schema::table('users_meta', function (Blueprint $table) {
