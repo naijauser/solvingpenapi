@@ -54,7 +54,7 @@ class AuthenticationController extends Controller
         $success['message'] = "You have registered successfully, check your email for activation link";
         $success['user_details'] = $user;
 
-        return response()->json([ 'status' => 'OK', 'message' =>  $success], $this->$successStatus);
+        return response()->json([ 'status' => 'OK', 'message' =>  $success], $this->successStatus);
     }
 
     public function login_user(Request $request) {
@@ -64,8 +64,10 @@ class AuthenticationController extends Controller
             // getting auth user after auth login
             $user = Auth::user();
 
-            $token = $user->createToken('token')->accessToken;
+            $token = Auth::createToken('token')->accessToken;
             $success['status'] = 'OK';
+            $success['token'] = $token;
+            $success['user'] = $user;
 
             // if($user->email_verified_at !== NULL){
             //     $success['message'] = "Success! you are logged in successfully";
