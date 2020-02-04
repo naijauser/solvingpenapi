@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Str;
 
-$DATABASE_URL = parse_url(' postgres://llwkadgfzcfvlm:3cd3c0a8d6be23c91c0cac2209cff9a43b63c35ab5e373144f34df839db2139d@ec2-52-55-59-250.compute-1.amazonaws.com:5432/d3b7g419su1cgd');
+// $DATABASE_URL = parse_url(' postgres://llwkadgfzcfvlm:3cd3c0a8d6be23c91c0cac2209cff9a43b63c35ab5e373144f34df839db2139d@ec2-52-55-59-250.compute-1.amazonaws.com:5432/d3b7g419su1cgd');
 
 return [
 
@@ -65,35 +65,35 @@ return [
             ]) : [],
         ],
 
-        'pgsql' => [
-            'driver' => 'pgsql',
-            // 'url' => $DATABASE_URL['host'],
-            'host' => $DATABASE_URL['host'],
-            'port' => $DATABASE_URL['port'],
-            'database' => ltrim($DATABASE_URL["path"], "/"),
-            'username' => $DATABASE_URL['user'],
-            'password' => $DATABASE_URL['pass'],
-            'charset' => 'utf8',
-            'prefix' => '',
-            'prefix_indexes' => true,
-            'schema' => 'public',
-            'sslmode' => 'prefer',
-        ],
-
         // 'pgsql' => [
         //     'driver' => 'pgsql',
-        //     'url' => env('DATABASE_URL'),
-        //     'host' => env('DB_HOST', '127.0.0.1'),
-        //     'port' => env('DB_PORT', '5432'),
-        //     'database' => env('DB_DATABASE', 'forge'),
-        //     'username' => env('DB_USERNAME', 'forge'),
-        //     'password' => env('DB_PASSWORD', ''),
+        //     // 'url' => $DATABASE_URL['host'],
+        //     'host' => $DATABASE_URL["host"],
+        //     'port' => $DATABASE_URL["port"],
+        //     'database' => ltrim($DATABASE_URL["path"], "/"),
+        //     'username' => $DATABASE_URL["user"],
+        //     'password' => $DATABASE_URL["pass"],
         //     'charset' => 'utf8',
         //     'prefix' => '',
         //     'prefix_indexes' => true,
         //     'schema' => 'public',
         //     'sslmode' => 'prefer',
         // ],
+
+        'pgsql' => [
+            'driver' => 'pgsql',
+            'url' => env('DATABASE_URL'),
+            'host' => env('DB_HOST', '127.0.0.1'),
+            'port' => env('DB_PORT', '5432'),
+            'database' => env('DB_DATABASE', 'forge'),
+            'username' => env('DB_USERNAME', 'forge'),
+            'password' => env('DB_PASSWORD', ''),
+            'charset' => 'utf8',
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'schema' => 'public',
+            'sslmode' => 'prefer',
+        ],
 
         'sqlsrv' => [
             'driver' => 'sqlsrv',
