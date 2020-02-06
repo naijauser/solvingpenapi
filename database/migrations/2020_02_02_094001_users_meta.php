@@ -18,7 +18,7 @@ class UsersMeta extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('interest_id');
-            $table->string('profile_pic')->default('profile_avata')->nullable();
+            $table->string('profile_pic')->default('profile_avatar')->nullable();
             $table->string('date_of_birth')->nullable();
             $table->string('website')->nullable();
             $table->string('gender')->nullable();

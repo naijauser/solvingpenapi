@@ -7,9 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class UserSpecialization extends Model
 {
     /**
-     * This variable contains a list of variables which can be mass assigned
+     * This variable contains an array of columns which can be mass assignable
+     * 
+     * @var array
      */
-
      protected $fillable = [
          'specialization_id',
          'user_id',

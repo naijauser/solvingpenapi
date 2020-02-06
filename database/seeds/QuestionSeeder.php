@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Question;
+use App\User;
 
 class QuestionSeeder extends Seeder
 {
@@ -23,4 +24,14 @@ class QuestionSeeder extends Seeder
             'question_file' => 'Gravatar.png',
          ]);
     }
+
+    /**
+     * Get a user id for this seeder
+     * 
+     * @return User
+     */
+    private function getUsersId () {
+        $user = User::all();
+    }
 }
+

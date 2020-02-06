@@ -79,6 +79,6 @@ class User extends Authenticatable
      * Establish users table relationship to the user_meta table
      */
     public function user_meta () {
-        return $this->hasOne('App\User_Meta');
+        return $this->hasOne('App\UserMeta');
     }
 }

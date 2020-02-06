@@ -14,5 +14,17 @@ class DatabaseSeeder extends Seeder
         // $this->call(UsersTableSeeder::class);
         $this->call(InterestSeeder::class);
         $this->call(UserSeeder::class);
+        /**
+         * Interests
+         * Users
+         * Specializations
+         * Questions
+         * Answers
+         * Votes
+         * UserSpecializations
+         * QuestionSpecializations
+         * User_Meta
+         * 
+         */
     }
 }

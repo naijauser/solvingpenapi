@@ -6,7 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Question extends Model
 {
-    //
+    /**
+     * This variable contains an array of columns which can be mass assigned
+     * 
+     * @var array
+     */
     protected $fillable = [
         'user_id',
         'question_title',
