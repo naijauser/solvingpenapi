@@ -14,7 +14,7 @@ class CreateQuestionsTable extends Migration
     public function up()
     {
         Schema::create('questions', function (Blueprint $table) {
-            $table->bigIncrements('question_id');
+            $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->string('question_title');
             $table->text('question_text_area');
@@ -25,7 +25,7 @@ class CreateQuestionsTable extends Migration
         });
 
         Schema::table('questions', function (Blueprint $table) {
-            $table->foreign('user_id')->references('user_id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

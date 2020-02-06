@@ -75,4 +75,11 @@ class User extends Authenticatable
         return $this->belongsTo(Interest::class);
     }
 
+    /**
+     * Establish users table relationship to the user_meta table
+     */
+    public function user_meta () {
+        return $this->hasOne('App\User_Meta');
+    }
+
 }

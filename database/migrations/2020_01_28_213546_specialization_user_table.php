@@ -20,11 +20,11 @@ class SpecializationUserTable extends Migration
         });
 
         Schema::table('specialization_user', function (Blueprint $table) {
-            $table->foreign('specialization_id')->references('specialization_id')->on('specializations');
+            $table->foreign('specialization_id')->references('id')->on('specializations');
         });
 
         Schema::table('specialization_user', function (Blueprint $table) {
-            $table->foreign('user_id')->references('user_id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

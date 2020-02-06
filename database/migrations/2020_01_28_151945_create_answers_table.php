@@ -27,11 +27,11 @@ class CreateAnswersTable extends Migration
         });
 
         Schema::table('answers', function (Blueprint $table) {
-            $table->foreign('user_id')->references('user_id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
         });
 
         Schema::table('answers', function (Blueprint $table) {
-            $table->foreign('question_id')->references('question_id')->on('questions');
+            $table->foreign('question_id')->references('id')->on('questions');
         });
     }
 

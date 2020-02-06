@@ -19,7 +19,7 @@ class UsersMeta extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('interest_id');
             $table->string('profile_pic')->default('profile_avata')->nullable();
-            $table->string('d_o_b')->nullable();
+            $table->string('date_of_birth')->nullable();
             $table->string('website')->nullable();
             $table->string('gender')->nullable();
             $table->string('phone')->nullable();
@@ -32,7 +32,7 @@ class UsersMeta extends Migration
         });
 
         Schema::table('users_meta', function (Blueprint $table) {
-            $table->foreign('interest_id')->references('interest_id')->on('interests');
+            $table->foreign('interest_id')->references('id')->on('interests');
         });
     }
 

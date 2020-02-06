@@ -14,7 +14,7 @@ class CreateVotesTable extends Migration
     public function up()
     {
         Schema::create('votes', function (Blueprint $table) {
-            $table->bigIncrements('vote_id');
+            $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('answer_id');
             $table->string('vote_description');
@@ -23,7 +23,7 @@ class CreateVotesTable extends Migration
         });
 
         Schema::table('votes', function (Blueprint $table) {
-            $table->foreign('user_id')->references('user_id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
         });
 
         Schema::table('votes', function (Blueprint $table) {

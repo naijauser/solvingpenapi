@@ -41,6 +41,35 @@ return [
 
     'debug' => env('APP_DEBUG', false),
 
+     /*
+    |--------------------------------------------------------------------------
+    | Application Debug Blacklist
+    |--------------------------------------------------------------------------
+    |
+    | When an exception is caught and the APP_DEBUG is set to true,
+    | the debug page will show all the environment variables and their contents.
+    | The configuration below obscures certain variables 
+    |
+    */
+
+    'debug_blacklist' => [
+        '_ENV' => [
+            'APP_KEY',
+            'DB_PASSWORD',
+            'DB_NAME',
+        ],
+
+        '_SERVER' => [
+            'APP_KEY',
+            'DB_PASSWORD',
+            'DB_NAME',
+        ],
+
+        '_POST' => [
+            'password',
+        ],
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Application URL
