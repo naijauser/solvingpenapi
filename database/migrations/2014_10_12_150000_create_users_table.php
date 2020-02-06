@@ -23,8 +23,6 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             // $table->foreign('interest_id')->references('interest_id')->on('interests');
         });
-
-        
     }
 
     /**

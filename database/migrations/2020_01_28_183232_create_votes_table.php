@@ -17,8 +17,6 @@ class CreateVotesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('answer_id');
-            $table->string('vote_description');
-            $table->string('vote_type');
             $table->timestamps();
         });
 

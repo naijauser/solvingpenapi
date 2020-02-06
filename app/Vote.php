@@ -8,8 +8,8 @@ class Vote extends Model
 {
     //
     protected $fillable = [
-        'vote_description',
-        'vote_type',
+        'user_id',
+        'answer_id',
     ];
 
 

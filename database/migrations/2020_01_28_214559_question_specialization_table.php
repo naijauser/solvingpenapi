@@ -14,12 +14,12 @@ class QuestionSpecializationTable extends Migration
     public function up()
     {
         Schema::create('question_specialization', function (Blueprint $table) {
-            $table->unsignedBigInteger('id');
+            $table->unsignedBigInteger('specialization_id');
             $table->unsignedBigInteger('question_id');
         });
 
         Schema::table('question_specialization', function (Blueprint $table) {
-            $table->foreign('id')->references('id')->on('specializations');
+            $table->foreign('specialization_id')->references('id')->on('specializations');
         });
 
         Schema::table('question_specialization', function (Blueprint $table) {

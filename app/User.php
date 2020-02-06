@@ -81,5 +81,4 @@ class User extends Authenticatable
     public function user_meta () {
         return $this->hasOne('App\User_Meta');
     }
-
 }

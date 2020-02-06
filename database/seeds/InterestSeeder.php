@@ -12,7 +12,9 @@ class InterestSeeder extends Seeder
      */
     public function run()
     {
-        //
+        /**
+         * Insert the dummy data into the interests table
+         */
         Interest::create([
             'interest_description' => 'Lorem ipsum isit odor',
             'interest_name' => 'Programming'

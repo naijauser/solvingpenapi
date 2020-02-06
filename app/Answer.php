@@ -8,6 +8,9 @@ class Answer extends Model
 {
     //
     protected $fillable = [
+        'answer_id',
+        'user_id',
+        'question_id',
         'answer_text_area',
         'answer_attachment_url',
         'answer_file',

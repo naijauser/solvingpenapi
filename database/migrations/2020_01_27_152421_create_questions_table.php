@@ -20,7 +20,7 @@ class CreateQuestionsTable extends Migration
             $table->text('question_text_area');
             $table->string('question_attachment_url', 1000)->nullable();;
             $table->string('question_file', 1000)->nullable();;
-            $table->string('question_state', 1000)->default('unsolved');
+            $table->integer('question_state')->default(0);
             $table->timestamps();
         });
 

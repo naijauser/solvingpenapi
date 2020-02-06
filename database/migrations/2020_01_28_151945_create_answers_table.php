@@ -22,7 +22,6 @@ class CreateAnswersTable extends Migration
             $table->string('answer_attachment_url', 1000)->nullable();
             $table->string('answer_file', 1000)->nullable();
             $table->boolean('best_answer')->default(false);
-            $table->timestamp('time_of_answer');
             $table->timestamps();
         });
 
