@@ -28,7 +28,7 @@ class UsersMeta extends Migration
         });
 
         Schema::table('users_meta', function (Blueprint $table) {
-            $table->foreign('user_id')->references('user_id')->on('users');
+            $table->foreign('id')->references('id')->on('users');
         });
 
         Schema::table('users_meta', function (Blueprint $table) {

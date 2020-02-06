@@ -19,7 +19,7 @@ class QuestionSpecializationTable extends Migration
         });
 
         Schema::table('question_specialization', function (Blueprint $table) {
-            $table->foreign('id')->references('specialization_id')->on('specializations');
+            $table->foreign('id')->references('id')->on('specializations');
         });
 
         Schema::table('question_specialization', function (Blueprint $table) {
