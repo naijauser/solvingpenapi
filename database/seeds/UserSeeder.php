@@ -18,5 +18,19 @@ class UserSeeder extends Seeder {
             'password' => bcrypt('000000'),
 
         ]);
+
+        User::create([
+            'name' => 'tope',
+            'email' => 't@p.com',
+            'password' => bcrypt('000000'),
+
+        ]);
+
+        User::create([
+            'name' => 'novados',
+            'email' => 'n@s.com',
+            'password' => bcrypt('000000'),
+
+        ]);
     }
 }

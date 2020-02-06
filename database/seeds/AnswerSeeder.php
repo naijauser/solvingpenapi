@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Answer;
+use App\User;
 
 class AnswerSeeder extends Seeder
 {

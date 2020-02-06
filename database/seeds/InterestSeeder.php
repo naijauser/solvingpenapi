@@ -19,5 +19,15 @@ class InterestSeeder extends Seeder
             'interest_description' => 'Lorem ipsum isit odor',
             'interest_name' => 'Programming'
         ]);
+
+        Interest::create([
+            'interest_description' => 'Lorem ipsum isit odor',
+            'interest_name' => 'Cooking'
+        ]);
+
+        Interest::create([
+            'interest_description' => 'Lorem ipsum isit odor',
+            'interest_name' => 'Tailoring'
+        ]);
     }
 }

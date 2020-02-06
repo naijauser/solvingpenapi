@@ -19,5 +19,15 @@ class SpecializationSeeder extends Seeder
             'specialization_title' => 'Mathematician',
             'specialization_description' => 'A certified mathematician.',
         ]);
+
+        Specialization::create([
+            'specialization_title' => 'Physicist',
+            'specialization_description' => 'A guru in physics.',
+        ]);
+
+        Specialization::create([
+            'specialization_title' => 'Physician',
+            'specialization_description' => 'A mdeical doctor',
+        ]);
     }
 }

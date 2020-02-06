@@ -25,7 +25,7 @@ class CreateQuestionsTable extends Migration
         });
 
         Schema::table('questions', function (Blueprint $table) {
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('id')->references('id')->on('users');
         });
     }
 
