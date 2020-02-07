@@ -20,5 +20,25 @@ class VoteSeeder extends Seeder
             'user_id' => 2,
             'answer_id' => 3,
          ]);
+
+         Vote::Create([
+            'user_id' => 1,
+            'answer_id' => 3,
+         ]);
+
+         Vote::Create([
+            'user_id' => 3,
+            'answer_id' => 3,
+         ]);
+
+         Vote::Create([
+            'user_id' => 2,
+            'answer_id' => 1,
+         ]);
+
+         Vote::Create([
+            'user_id' => 2,
+            'answer_id' => 1,
+         ]);
     }
 }

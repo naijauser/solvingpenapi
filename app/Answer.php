@@ -12,7 +12,6 @@ class Answer extends Model
      * @var array
      */
     protected $fillable = [
-        'answer_id',
         'user_id',
         'question_id',
         'answer_text_area',

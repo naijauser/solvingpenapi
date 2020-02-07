@@ -21,15 +21,6 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'description',
-        'points',
-        'interest',
-        'profile_pic',
-        'd_o_b',
-        'website',
-        'gender',
-        'phone',
-        'interest_id'
     ];
 
     /**
@@ -80,5 +71,9 @@ class User extends Authenticatable
      */
     public function user_meta () {
         return $this->hasOne('App\UserMeta');
+    }
+
+    public function user_specializations () {
+        return $this->belongsToMany('App\Specialization');
     }
 }

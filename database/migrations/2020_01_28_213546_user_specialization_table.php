@@ -13,17 +13,17 @@ class UserSpecializationTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_specialization', function (Blueprint $table) {
+        Schema::create('user_specializations', function (Blueprint $table) {
             $table->unsignedBigInteger('specialization_id');
             $table->unsignedBigInteger('user_id');
 
         });
 
-        Schema::table('user_specialization', function (Blueprint $table) {
+        Schema::table('user_specializations', function (Blueprint $table) {
             $table->foreign('specialization_id')->references('id')->on('specializations');
         });
 
-        Schema::table('user_specialization', function (Blueprint $table) {
+        Schema::table('user_specializations', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users');
         });
     }
@@ -35,6 +35,6 @@ class UserSpecializationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_specialization');
+        Schema::dropIfExists('user_specializations');
     }
 }

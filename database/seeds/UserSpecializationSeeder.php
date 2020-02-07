@@ -16,9 +16,35 @@ class UserSpecializationSeeder extends Seeder
          * Insert the dummy data into the user_specialization table
          */
         UserSpecialization::create([
-            'specialization_id' => 3,
-            'user_id' => 5,
+            'specialization_id' => 1,
+            'user_id' => 3,
         ]);
+
+        UserSpecialization::create([
+            'specialization_id' => 2,
+            'user_id' => 3,
+        ]);
+
+        UserSpecialization::create([
+            'specialization_id' => 3,
+            'user_id' => 3,
+        ]);
+
+        UserSpecialization::create([
+            'specialization_id' => 3,
+            'user_id' => 3,
+        ]);
+
+        UserSpecialization::create([
+            'specialization_id' => 1,
+            'user_id' => 2,
+        ]);
+
+        UserSpecialization::create([
+            'specialization_id' => 1,
+            'user_id' => 2,
+        ]);
+
 
     }
 }

@@ -25,7 +25,7 @@ class CreateVotesTable extends Migration
         });
 
         Schema::table('votes', function (Blueprint $table) {
-            $table->foreign('answer_id')->references('answer_id')->on('answers');
+            $table->foreign('answer_id')->references('id')->on('answers');
         });
     }
 
