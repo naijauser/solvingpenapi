@@ -13,16 +13,16 @@ class QuestionSpecializationTable extends Migration
      */
     public function up()
     {
-        Schema::create('question_specialization', function (Blueprint $table) {
+        Schema::create('question_specializations', function (Blueprint $table) {
             $table->unsignedBigInteger('specialization_id');
             $table->unsignedBigInteger('question_id');
         });
 
-        Schema::table('question_specialization', function (Blueprint $table) {
+        Schema::table('question_specializations', function (Blueprint $table) {
             $table->foreign('specialization_id')->references('id')->on('specializations');
         });
 
-        Schema::table('question_specialization', function (Blueprint $table) {
+        Schema::table('question_specializations', function (Blueprint $table) {
             $table->foreign('question_id')->references('id')->on('questions');
         });
     }
@@ -34,6 +34,6 @@ class QuestionSpecializationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('question_specialization');
+        Schema::dropIfExists('question_specializations');
     }
 }

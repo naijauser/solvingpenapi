@@ -18,13 +18,9 @@ class DatabaseSeeder extends Seeder
         $this->call(QuestionSeeder::class);
         $this->call(AnswerSeeder::class);
         $this->call(VoteSeeder::class);
-
-        /**
-         * UserSpecializations
-         * QuestionSpecializations
-         * User_Meta
-         * 
-         */
+        $this->call(UserSpecializationSeeder::class);
+        $this->call(QuestionSpecializationSeeder::class);
+        $this->call(UserMetaSeeder::class);
     }
-    
+
 }

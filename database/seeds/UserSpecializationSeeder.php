@@ -29,17 +29,7 @@ class UserSpecializationSeeder extends Seeder
             'specialization_id' => 3,
             'user_id' => 3,
         ]);
-
-        UserSpecialization::create([
-            'specialization_id' => 3,
-            'user_id' => 3,
-        ]);
-
-        UserSpecialization::create([
-            'specialization_id' => 1,
-            'user_id' => 2,
-        ]);
-
+        
         UserSpecialization::create([
             'specialization_id' => 1,
             'user_id' => 2,

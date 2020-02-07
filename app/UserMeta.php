@@ -26,10 +26,14 @@ class UserMeta extends Model
         'phone',
         'points',
         'description'
-
-
     ];
 
+    /**
+        * Indicates if the model should be timestamped
+        * 
+        * @var boolean
+        */
+        public $timestamps = false;
 
     /**
      * Set model relationship with User model

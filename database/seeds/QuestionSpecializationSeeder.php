@@ -16,8 +16,28 @@ class QuestionSpecializationSeeder extends Seeder
          * Insert the dummy data into the question_specialization table
          */
         QuestionSpecialization::create([
-            'specialization_id' => 4,
-            'question_id' => 6,
+            'specialization_id' => 2,
+            'question_id' => 3,
+        ]);
+
+        QuestionSpecialization::create([
+            'specialization_id' => 2,
+            'question_id' => 1,
+        ]);
+
+        QuestionSpecialization::create([
+            'specialization_id' => 3,
+            'question_id' => 1,
+        ]);
+
+        QuestionSpecialization::create([
+            'specialization_id' => 2,
+            'question_id' => 3,
+        ]);
+
+        QuestionSpecialization::create([
+            'specialization_id' => 3,
+            'question_id' => 1,
         ]);
 
     }

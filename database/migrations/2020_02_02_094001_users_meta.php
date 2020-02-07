@@ -23,7 +23,7 @@ class UsersMeta extends Migration
             $table->string('website')->nullable();
             $table->string('gender')->nullable();
             $table->string('phone')->nullable();
-            $table->unsignedInteger('points')->default(0)->nullable();
+            $table->unsignedInteger('points')->default(0);
             $table->string('description', 1000)->nullable();
         });
 
