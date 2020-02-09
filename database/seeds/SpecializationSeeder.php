@@ -12,18 +12,22 @@ class SpecializationSeeder extends Seeder
      */
     public function run()
     {
-
-        // Use the factory to create a Faker\Generator instance.
-        $faker = \Faker\Factory::create('en_NG');
-
-         /**
-         * Loop through and insert the dummy data into the users table
+        /**
+         * Insert the dummy data into the specializations table
          */
-        for ($i = 0; $i < 10; $i++) {
-            Specialization::create([
-                'specialization_title' => $faker->word(rand(7, 12)),
-                'specialization_description' => $faker->sentence(),
-            ]);
-        }
+        Specialization::create([
+            'specialization_title' => 'Mathematician',
+            'specialization_description' => 'A certified mathematician.',
+        ]);
+
+        Specialization::create([
+            'specialization_title' => 'Physicist',
+            'specialization_description' => 'A guru in physics.',
+        ]);
+
+        Specialization::create([
+            'specialization_title' => 'Physician',
+            'specialization_description' => 'A mdeical doctor',
+        ]);
     }
 }

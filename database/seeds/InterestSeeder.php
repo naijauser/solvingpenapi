@@ -12,17 +12,22 @@ class InterestSeeder extends Seeder
      */
     public function run()
     {
-        // Use the factory to create a Faker\Generator instance.
-        $faker = \Faker\Factory::create('en_NG');
-
-         /**
-         * Loop through and insert the dummy data into the users table
+        /**
+         * Insert the dummy data into the interests table
          */
-        for ($i = 0; $i < 10; $i++) {
-            Interest::create([
-                'interest_description' => $faker->word(7),
-                'interest_name' => $faker->sentence(5)
-            ]);
-        }
+        Interest::create([
+            'interest_description' => 'Lorem ipsum isit odor',
+            'interest_name' => 'Programming'
+        ]);
+
+        Interest::create([
+            'interest_description' => 'Lorem ipsum isit odor',
+            'interest_name' => 'Cooking'
+        ]);
+
+        Interest::create([
+            'interest_description' => 'Lorem ipsum isit odor',
+            'interest_name' => 'Tailoring'
+        ]);
     }
 }

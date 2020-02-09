@@ -12,26 +12,22 @@ class UserMetaSeeder extends Seeder
      */
     public function run()
     {
-
-        // Use the factory to create a Faker\Generator instance.
-        $faker = \Faker\Factory::create('en_NG');
-
-        $gender = ['male', 'female'];
-
-         /**
-         * Loop through and insert the dummy data into the users table
+        /**
+         * Insert the dummy data into the users_meta table
          */
-        for ($i = 0; $i < 10; $i++) {
-            UserMeta::create([
-                'user_id' => rand(1, 10),
-                'interest_id' => rand(1, 10), 
-                'profile_pic' => $faker->imageUrl(),
-                'date_of_birth' => $faker->dateTimeThisCentury->format('Y-m-d'),
-                'website' => $faker->domainName,
-                'gender' => $gender[rand(0, 1)],
-                'phone' => $faker->phoneNUmber,
-                'description' => $faker->text
-            ]);
-        }
+        UserMeta::create([
+            'user_id' => 3,
+            'interest_id' => 2, 
+        ]);
+
+        UserMeta::create([
+            'user_id' => 1,
+            'interest_id' => 2, 
+        ]);
+
+        UserMeta::create([
+            'user_id' => 3,
+            'interest_id' => 1, 
+        ]);
     }
 }
