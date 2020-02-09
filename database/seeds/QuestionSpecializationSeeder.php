@@ -15,30 +15,11 @@ class QuestionSpecializationSeeder extends Seeder
          /**
          * Insert the dummy data into the question_specialization table
          */
-        QuestionSpecialization::create([
-            'specialization_id' => 2,
-            'question_id' => 3,
-        ]);
-
-        QuestionSpecialization::create([
-            'specialization_id' => 2,
-            'question_id' => 1,
-        ]);
-
-        QuestionSpecialization::create([
-            'specialization_id' => 3,
-            'question_id' => 1,
-        ]);
-
-        QuestionSpecialization::create([
-            'specialization_id' => 2,
-            'question_id' => 3,
-        ]);
-
-        QuestionSpecialization::create([
-            'specialization_id' => 3,
-            'question_id' => 1,
-        ]);
-
+        for ($i = 0 ; $i < 10; $i++) {
+            QuestionSpecialization::create([
+                'specialization_id' => rand(1, 10),
+                'question_id' => rand(1, 10),
+            ]);
+        }
     }
 }
