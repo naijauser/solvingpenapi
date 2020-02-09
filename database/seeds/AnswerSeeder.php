@@ -2,8 +2,6 @@
 
 use Illuminate\Database\Seeder;
 use App\Answer;
-use App\User;
-use App\Question;
 
 class AnswerSeeder extends Seeder
 {
@@ -17,6 +15,9 @@ class AnswerSeeder extends Seeder
         /**
          * Insert the dummy data into the answers table
          */
+
+        Answer::truncate();
+
         Answer::create([
             'user_id' => 3,
             'question_id' => 2,
