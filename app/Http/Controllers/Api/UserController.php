@@ -6,12 +6,13 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\UserMeta;
+use App\Question;
 
 class UserController extends Controller
 {
     //
 
-    public function user_details(Request $request){
+    public function getUserDetails (Request $request){
 
         // retrieve the instance of that user
         $user = Auth::user();
@@ -24,7 +25,7 @@ class UserController extends Controller
      * 
      *  @return App\User
      */
-    public function getUserMeta () {
+    public function getUserMetaDetails (Request $request) {
         $usermeta = UserMeta::find();
     }
 
@@ -35,7 +36,7 @@ class UserController extends Controller
      *  @return int
      * 
      */
-    public function getMyAskedQuestions () {
+    public function getMyAskedQuestions (Request $request) {
 
     }
 
@@ -45,8 +46,8 @@ class UserController extends Controller
      *  @return int
      * 
      */
-    public function getMyAnsweredQuestions () {
-
+    public function getMyAnsweredQuestions (Request $request) {
+        //
     }
 
 }
