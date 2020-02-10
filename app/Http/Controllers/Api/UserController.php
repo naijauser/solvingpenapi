@@ -28,4 +28,15 @@ class UserController extends Controller
         $usermeta = UserMeta::find();
     }
 
+
+    /**
+     *  Grab all the questions asked by user
+     * 
+     *  @return int
+     * 
+     */
+    public function getMyAskedQuestions () {
+
+    }
+
 }
