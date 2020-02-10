@@ -39,4 +39,14 @@ class UserController extends Controller
 
     }
 
+    /**
+     *  Grab all the questions answered by user
+     * 
+     *  @return int
+     * 
+     */
+    public function getMyAnsweredQuestions () {
+
+    }
+
 }
