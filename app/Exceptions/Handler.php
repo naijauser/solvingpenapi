@@ -40,7 +40,7 @@ class Handler extends ExceptionHandler
     }
 
     /**
-     * Render an exception into an HTTP response.
+     * Render an exception into an JSON response.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Exception  $exception
@@ -48,8 +48,44 @@ class Handler extends ExceptionHandler
      *
      * @throws \Exception
      */
-    public function render($request, Exception $exception)
+    public function render($request, Exception $e)
     {
-        return parent::render($request, $exception);
+        // Replace default 404 error with json response
+        // if ($exception instanceof ModelNotFoundException) {
+        //     return response()->json([
+        //         'error' => 'Resource Not Found'
+        //     ], 404);
+        // }
+        // return response()->json([
+        //     'error' => 'Resource Not Found'
+        // ], 404);
+
+        // return parent::render($request, $exception);
+
+        if (method_exists($e, 'render') && $response = $e->render($request)) {
+            return Router::toResponse($request, $response);
+        } elseif ($e instanceof Responsable) {
+            return $e->toResponse($request);
+        }
+
+        $e = $this->prepareException($e);
+
+        if ($e instanceof HttpResponseException) {
+            return response()->json([
+                'error' => 'Response Error'
+            ]);
+        } elseif ($e instanceof AuthenticationException) {
+            return response()->json([
+                'error' => 'Authentication Error'
+            ]);
+        } elseif ($e instanceof ValidationException) {
+            return response()->json([
+                'error' => 'Validation Error'
+            ]);
+        }
+
+        return response()->json([
+            'error' => 'Invalid Endpoint! Please check the API docs.'
+        ]);
     }
 }
