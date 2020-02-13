@@ -22,26 +22,29 @@ class AuthenticationController extends Controller
 
         // Validate the user details
         $validator = Validator::make($request->all(), [
-                'name' => 'required|min:3', 'email' => 'required|email',
-                'password' => 'required|alpha_num|min:5',
+                'firstName' => 'required|min:3',
+                'lastName' => 'required|min:3',
+                'email' => 'required|email',
+                'password' => 'required|alpha_num|min:6',
                 /*'confirm_password' => 'required|same:password',
                 'clint' =>'required'*/
             ]
         );
         if($validator->fails()) {
-            return response()->json(['status' => 'FAIL', 'message' => $validator->errors()]);
+            return response()->json(['status' => 'FAIL', 'message' => $validator->errors()], 406);
         }
 
         // collect inputs
         $input = array(
-            'name' => $request->name,
+            'firstName' => $request->firstName,
+            'lastName' => $request->lastName,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         );
 
         // check if email already registered
         if(!is_null(User::where('email', $request->email)->first())) {
-            return response()->json(['status' => 'FAIL', 'message' => 'Sorry! this email is already registered']);
+            return response()->json(['status' => 'FAIL', 'message' => 'Sorry! this email is already registered'], 406);
         }
 
         // create and return data
@@ -50,17 +53,16 @@ class AuthenticationController extends Controller
         // $user->sendApiEmailVerificationNotification();
 
         //if the mail was successfully sent do below
-        $success['token'] = $user->createToken('token')->accessToken;
-        $success['message'] = "You have registered successfully, check your email for activation link";
-        $success['user_details'] = $user;
+        // $success['token'] = $user->createToken('token')->accessToken;
+        $success['status'] = 'OK';
+        $success['user'] = $user;
 
-        return response()->json([ 'status' => 'OK', 'message' =>  $success], $this->successStatus);
+        return response()->json([ 'status' => 'OK', 'success' =>  $success], $this->successStatus);
     }
 
     public function login_user(Request $request) {
-
         if(Auth::attempt(['email' => request('email'), 'password' => request('password')])) {
-
+            
             // getting auth user after auth login
             $user = Auth::user();
 
@@ -78,7 +80,7 @@ class AuthenticationController extends Controller
             return response()->json(['success' => $success ], $this->successStatus);
         }
         else {
-            return response()->json(['error'=>'Unauthorised'], 401);
+            return response()->json(['error'=>'Login failed'], 401);
         }
     }
 
