@@ -129,7 +129,7 @@ The base url is not known at this time, whatever it turns out to be should be pr
 ### User Register
 **endpoint**: POST /api/register<br>
 **parameters**: firstName, lastName, email, password, password_confirmation<br>
-**payload type**: json
+**payload type**: json<br>
 **payload sample**: 
 ```json
 {
