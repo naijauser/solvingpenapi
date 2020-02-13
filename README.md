@@ -95,13 +95,13 @@ The Solving Pen API is the backend of a Laravel powered Question and Answer (Q a
 The base url is not known at this time, whatever it turns out to be should be prepended to the endpoints.
 
 Login: To log a user in. 
-    POST /api/login
-    parameters: email, password
+    <p>POST /api/login</p>
+    <p>parameters: email, password</p>
     payload type: json
-    sample body: {
+    <pre>sample body: {
                 "email": "example@example.com",
                 "password": "password"
-                }
+                }</pre>
     sample response: {
                         "success": {
                             "status": "OK",
