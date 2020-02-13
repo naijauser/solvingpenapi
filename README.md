@@ -94,24 +94,24 @@ The Solving Pen API is the backend of a Laravel powered Question and Answer (Q a
 ### Endpoints
 The base url is not known at this time, whatever it turns out to be should be prepended to the endpoints.
 
-**Login**: To log a user in. 
-    <p>**endpoint**: POST /api/login</p>
-    <p>**parameters**: email, password</p>
-    <p>**payload type**: json</p>
-    <p>**sample body**:</p>
-```     
+### User Login
+**endpoint**: POST /api/login<br>
+**parameters**: email, password<br>
+**payload type**: json<br>
+**sample body**:<br>
+```json     
 {
-"email": "example@example.com",
-"password": "password"
+    "email": "example@example.com",
+    "password": "password"
 }
 ```
-<p>**sample response**:</p>
+**sample response**:
 
-
+```json
     {
         "success": {
             "status": "OK",
-            "token":                    kaO1IISlX0mrR2ius0kG39Ug",
+            "token": "QiOiIxIiwianRpIjoiNTJjNzJiZWU3N2ZmZmUzYzY3MDM1ODI5ODkzNWFiY2YwNzg1OTZjYTVmZDQyN2M5ZmU5NGQxYTNmZDRmZDA0MzhjMjkwNDdhZTBhZGU1YzEiLCJpYXQiOjE1ODE1NzY4MjMsIm5iZiI6MTU4MTU3NjgyMywiZXhwIjoxNjEzMTk5MjIzLCJzzvTdT3oDAJB6VYBOz2-Oxl_Evfl6a9icLunan0ohi4x9-GIhqSBOFbIU9qqok8sFpO_bPOyyCbAUNpYwwM_kCnBM0w2Yz6YEbzz6k_lxJWLjHfwurbGZF69nNvjc7CceE6uaLfZsV6AvIexPC6LDQp6YpH1wn0RIPUfeZkx15567-OYrtZSQu60i42kSU7btR6rAuKAH",
             "user": {
                 "id": 11,
                 "firstName": "Adebimpe",
@@ -122,31 +122,37 @@ The base url is not known at this time, whatever it turns out to be should be pr
                 "updated_at": "2020-02-13 05:54:51"
             }
         }
+    }
+```
+<hr>
+
+### User Register
+**endpoint**: POST /api/register<br>
+**parameters**: firstName, lastName, email, password, password_confirmation<br>
+**payload type**: json
+**payload sample**: 
+```json
+{
+    "firstName": "Adebimpe",
+    "lastName": "Babatunde",
+    "email": "c@d.com",
+    "password": "123456",
+    "password_confirmation": "123456"
 }
 ```
-
-
-Register: To register a user
-    POST /api/register
-    parameters: firstName, lastName, email, password, password_confirmation
-    payload type: json
-    payload sample: {
-                        "firstName": "Adebimpe",
-                        "lastName": "Babatunde",
-                        "email": "c@d.com",
-                        "password": "123456",
-                        "password_confirmation": "123456"
-                    }
-    sample response: {
-                        "success": {
-                            "status": "OK",
-                            "user: {
-                                "firstName": "Adebimpe",
-                                "lastName": "Babatunde",
-                                "email": "c@d.com",
-                                "updated_at": "2020-02-13 05:54:51",
-                                "created_at": "2020-02-13 05:54:51",
-                                "id": 11
-                            }
-                        }  
-                    }
+**sample response**:
+```json
+{
+    "success": {
+        "status": "OK",
+        "user: {
+            "firstName": "Adebimpe",
+            "lastName": "Babatunde",
+            "email": "c@d.com",
+            "updated_at": "2020-02-13 05:54:51",
+            "created_at": "2020-02-13 05:54:51",
+            "id": 11
+        }
+    }  
+}
+```
