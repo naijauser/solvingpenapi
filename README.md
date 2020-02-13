@@ -145,7 +145,7 @@ The base url is not known at this time, whatever it turns out to be should be pr
 {
     "success": {
         "status": "OK",
-        "user: {
+        "user": {
             "firstName": "Adebimpe",
             "lastName": "Babatunde",
             "email": "c@d.com",
