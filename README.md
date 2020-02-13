@@ -94,29 +94,36 @@ The Solving Pen API is the backend of a Laravel powered Question and Answer (Q a
 ### Endpoints
 The base url is not known at this time, whatever it turns out to be should be prepended to the endpoints.
 
-Login: To log a user in. 
-    <p>POST /api/login</p>
-    <p>parameters: email, password</p>
-    payload type: json
-    <pre>sample body: {
-                "email": "example@example.com",
-                "password": "password"
-                }</pre>
-    sample response: {
-                        "success": {
-                            "status": "OK",
-                            "token": "ejfoeNiJ9.eyJhdWQiOiIxIiwianRpIjoiNTJjNzJiZWU3N2ZmZmUzYzY3MDM1ODI5ODkzNWFiY2YwNzg1OTZjYTVmZDQyN2M5ZmU5NGQxYTNmZDRmZDA0MzhjMjkwNDdhZTBhZGU1YzEiLCJpYXQiOjE1ODE1NzY4MjMsIm5iZiI6MTU4MTU3NjgyMywiZXhwIjoxNjEzMTk5MjIzLCJzzvTdT3oDAJB6VYBOz2-Oxl_Evfl6a9icLunan0ohi4x9-GIhqSBOFbIU9qqok8sFpO_bPOyyCbAUNpYwwM_kCnBM0w2Yz6YEbzz6k_lxJWLjHfwurbGZF69nNvjc7CceE6uaLfZsV6AvIexPC6LDQp6YpH1wn0RIPUfeZkx15567-OYrtZSQu60i42kSU7btR6rAuKAH8cwiKzIeaPkIjpcmxcfp8hGCoyVbnm3c2pR0LT7mQhZmR4pdZhB8kCGsip7eIBhcjIx99Q3kZcMk-C0Hhi3SJBc7YfkaO1IISlX0mrR2ius0kG39Ug",
-                            "user": {
-                                "id": 11,
-                                "firstName": "Adebimpe",
-                                "lastName": "Babatunde",
-                                "email": "c@d.com",
-                                "email_verified_at": null,
-                                "created_at": "2020-02-13 05:54:51",
-                                "updated_at": "2020-02-13 05:54:51"
-                            }
-                        }
-                    }
+**Login**: To log a user in. 
+    <p>**endpoint**: POST /api/login</p>
+    <p>**parameters**: email, password</p>
+    <p>**payload type**: json</p>
+    <p>**sample body**:</p>
+```     
+{
+"email": "example@example.com",
+"password": "password"
+}
+```
+<p>**sample response**:</p>
+
+
+    {
+        "success": {
+            "status": "OK",
+            "token":                    kaO1IISlX0mrR2ius0kG39Ug",
+            "user": {
+                "id": 11,
+                "firstName": "Adebimpe",
+                "lastName": "Babatunde",
+                "email": "c@d.com",
+                "email_verified_at": null,
+                "created_at": "2020-02-13 05:54:51",
+                "updated_at": "2020-02-13 05:54:51"
+            }
+        }
+}
+```
 
 
 Register: To register a user
