@@ -11,13 +11,14 @@ use App\Question;
 class UserController extends Controller
 {
     //
+    private $statusOk = 'OK';
 
-    public function getUserDetails (Request $request){
+    public function getMyDetails (Request $request){
 
         // retrieve the instance of that user
         $user = Auth::user();
 
-        return response()->json(['success' => $user]);
+        return response()->json(['status' => $this->statusOk, 'data' => $user]);
     }
 
     /**
@@ -25,7 +26,7 @@ class UserController extends Controller
      * 
      *  @return App\User
      */
-    public function getUserMetaDetails (Request $request) {
+    public function getMyMetaDetails (Request $request) {
         $usermeta = UserMeta::find();
     }
 

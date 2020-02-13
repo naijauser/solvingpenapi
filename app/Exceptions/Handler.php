@@ -3,7 +3,16 @@
 namespace App\Exceptions;
 
 use Exception;
+use Illuminate\Session\TokenMismatchException;
+use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
+use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
+use Symfony\Component\HttpFoundation\Exception\SuspiciousOperationException;
 
 class Handler extends ExceptionHandler
 {
@@ -48,44 +57,45 @@ class Handler extends ExceptionHandler
      *
      * @throws \Exception
      */
-    public function render($request, Exception $e)
-    {
-        // Replace default 404 error with json response
-        // if ($exception instanceof ModelNotFoundException) {
-        //     return response()->json([
-        //         'error' => 'Resource Not Found'
-        //     ], 404);
-        // }
-        // return response()->json([
-        //     'error' => 'Resource Not Found'
-        // ], 404);
+    // public function render($request, Exception $e)
+    // {
+    //     if ($e instanceof ModelNotFoundException) {
+    //         return response()->json([
+    //             'error' => 'Entry for '.str_replace('App\\', '', $e->getModel()).' not found'
+    //         ], 404);
+    //     } elseif ($e instanceof AuthorizationException) {
+    //         return response()->json([
+    //             'error' => 'Authorization failed'
+    //         ], 401 );
+    //     } elseif ($e instanceof TokenMismatchException) {
+    //         return response()->json([
+    //             'error' => 'Token mismatch!'
+    //         ], 401);
+    //     } elseif ($e instanceof SuspiciousOperationException) {
+    //         return response()->json([
+    //             'error' => 'Authentication Error'
+    //         ], 400);
+    //     } elseif ($e instanceof MethodNotAllowedHttpException) {
+    //         return response()->json([
+    //             'error' => 'Method not allowed'
+    //         ], 405);
+    //     }  elseif ($e instanceof AuthenticationException) {
+    //         return response()->json([
+    //             'error' => 'Authentication failed'
+    //         ], 401);
+    //     } elseif ($e instanceof ValidationException) {
+    //         return response()->json([
+    //             'error' => 'Validation failed'
+    //         ], 403);
+    //     } elseif ($e instanceof HttpResponseException) {
+    //         return response()->json([
+    //             'error' => 'Http Response error'
+    //         ], 400);
+    //     }
 
-        // return parent::render($request, $exception);
+    //     return response()->json([
+    //         'error' => 'An error occured'
+    //     ], 400);
 
-        if (method_exists($e, 'render') && $response = $e->render($request)) {
-            return Router::toResponse($request, $response);
-        } elseif ($e instanceof Responsable) {
-            return $e->toResponse($request);
-        }
-
-        $e = $this->prepareException($e);
-
-        if ($e instanceof HttpResponseException) {
-            return response()->json([
-                'error' => 'Response Error'
-            ]);
-        } elseif ($e instanceof AuthenticationException) {
-            return response()->json([
-                'error' => 'Authentication Error'
-            ]);
-        } elseif ($e instanceof ValidationException) {
-            return response()->json([
-                'error' => 'Validation Error'
-            ]);
-        }
-
-        return response()->json([
-            'error' => 'Invalid Endpoint! Please check the API docs.'
-        ]);
-    }
+    // }
 }

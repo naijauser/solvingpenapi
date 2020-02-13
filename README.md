@@ -1,4 +1,4 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+<!-- <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
 <p align="center">
 <a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
@@ -75,4 +75,71 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT). -->
+
+
+
+
+
+
+
+
+
+## About Solving Pen API
+
+The Solving Pen API is the backend of a Laravel powered Question and Answer (Q and A) platform. Solving Pen aims to provide a means by which students can help other students in the university.
+
+## Consuming the API
+
+### Endpoints
+The base url is not known at this time, whatever it turns out to be should be prepended to the endpoints.
+
+Login: To log a user in. 
+    POST /api/login
+    parameters: email, password
+    payload type: json
+    sample body: {
+                "email": "example@example.com",
+                "password": "password"
+                }
+    sample response: {
+                        "success": {
+                            "status": "OK",
+                            "token": "ejfoeNiJ9.eyJhdWQiOiIxIiwianRpIjoiNTJjNzJiZWU3N2ZmZmUzYzY3MDM1ODI5ODkzNWFiY2YwNzg1OTZjYTVmZDQyN2M5ZmU5NGQxYTNmZDRmZDA0MzhjMjkwNDdhZTBhZGU1YzEiLCJpYXQiOjE1ODE1NzY4MjMsIm5iZiI6MTU4MTU3NjgyMywiZXhwIjoxNjEzMTk5MjIzLCJzzvTdT3oDAJB6VYBOz2-Oxl_Evfl6a9icLunan0ohi4x9-GIhqSBOFbIU9qqok8sFpO_bPOyyCbAUNpYwwM_kCnBM0w2Yz6YEbzz6k_lxJWLjHfwurbGZF69nNvjc7CceE6uaLfZsV6AvIexPC6LDQp6YpH1wn0RIPUfeZkx15567-OYrtZSQu60i42kSU7btR6rAuKAH8cwiKzIeaPkIjpcmxcfp8hGCoyVbnm3c2pR0LT7mQhZmR4pdZhB8kCGsip7eIBhcjIx99Q3kZcMk-C0Hhi3SJBc7YfkaO1IISlX0mrR2ius0kG39Ug",
+                            "user": {
+                                "id": 11,
+                                "firstName": "Adebimpe",
+                                "lastName": "Babatunde",
+                                "email": "c@d.com",
+                                "email_verified_at": null,
+                                "created_at": "2020-02-13 05:54:51",
+                                "updated_at": "2020-02-13 05:54:51"
+                            }
+                        }
+                    }
+
+
+Register: To register a user
+    POST /api/register
+    parameters: firstName, lastName, email, password, password_confirmation
+    payload type: json
+    payload sample: {
+                        "firstName": "Adebimpe",
+                        "lastName": "Babatunde",
+                        "email": "c@d.com",
+                        "password": "123456",
+                        "password_confirmation": "123456"
+                    }
+    sample response: {
+                        "success": {
+                            "status": "OK",
+                            "user: {
+                                "firstName": "Adebimpe",
+                                "lastName": "Babatunde",
+                                "email": "c@d.com",
+                                "updated_at": "2020-02-13 05:54:51",
+                                "created_at": "2020-02-13 05:54:51",
+                                "id": 11
+                            }
+                        }  
+                    }
