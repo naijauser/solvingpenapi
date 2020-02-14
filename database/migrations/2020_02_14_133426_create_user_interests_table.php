@@ -14,8 +14,16 @@ class CreateUserInterestsTable extends Migration
     public function up()
     {
         Schema::create('user_interests', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->timestamps();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('interest_id');
+        });
+
+        Schema::table('user_interests', function (Blueprint $table) {
+            $table->foreign('user_id')->references('id')->on('users');
+        });
+
+        Schema::table('user_interests', function (Blueprint $table) {
+            $table->foreign('interest_id')->references('id')->on('interests');
         });
     }
 
