@@ -16,29 +16,11 @@ class VoteSeeder extends Seeder
          * Insert dummy data into the votes table
          */
 
-         Vote::Create([
-            'user_id' => 2,
-            'answer_id' => 3,
-         ]);
-
-         Vote::Create([
-            'user_id' => 1,
-            'answer_id' => 3,
-         ]);
-
-         Vote::Create([
-            'user_id' => 3,
-            'answer_id' => 3,
-         ]);
-
-         Vote::Create([
-            'user_id' => 2,
-            'answer_id' => 1,
-         ]);
-
-         Vote::Create([
-            'user_id' => 2,
-            'answer_id' => 1,
-         ]);
+         for ($i = 0; $i < 10; $i++) {
+            Vote::Create([
+               'user_id' => rand(1, 10),
+               'answer_id' => rand(1, 10),
+            ]);
+         }
     }
 }
