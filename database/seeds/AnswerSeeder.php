@@ -16,30 +16,21 @@ class AnswerSeeder extends Seeder
          * Insert the dummy data into the answers table
          */
 
-        Answer::truncate();
+        // Clear the database
+        // Answer::truncate();
 
-        Answer::create([
-            'user_id' => 3,
-            'question_id' => 2,
-            'answer_text_area' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ante orci, convallis quis vestibulum a, tristique quis purus.',
-            'answer_attachment_url' => 'gravatar.jpg',
-            'answer_file' => '',
-        ]);
+        // Use the factory to create a Faker\Generator instance.
+        $faker = \Faker\Factory::create('en_NG');
 
-        Answer::create([
-            'user_id' => 1,
-            'question_id' => 2,
-            'answer_text_area' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ante orci, convallis quis vestibulum a, tristique quis purus.',
-            'answer_attachment_url' => 'gravatar.jpg',
-            'answer_file' => '',
-        ]);
 
-        Answer::create([
-            'user_id' => 2,
-            'question_id' => 3,
-            'answer_text_area' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ante orci, convallis quis vestibulum a, tristique quis purus.',
-            'answer_attachment_url' => 'gravatar.jpg',
-            'answer_file' => '',
-        ]);
+        for ($i = 0; $i < 10; $i++) {
+            Answer::create([
+                'user_id' => rand(1, 10),
+                'question_id' => rand(1, 10),
+                'answer_text_area' => $faker->text(rand(20, 500)),
+                'answer_attachment_url' => $faker->imageUrl(),
+                'answer_file' => $faker->image(),
+            ]);    
+        }
     }
 }

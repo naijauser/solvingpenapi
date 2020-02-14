@@ -16,9 +16,14 @@ class Interest extends Model
         'intrest_name',
     ];
 
+    /**
+    * Indicates if the model should be timestamped
+    * 
+    * @var boolean
+    */
+    public $timestamps = false;
+
     public function users(){
         return $this->belongsToMany(User::class);
     }
-
-
 }

@@ -13,32 +13,22 @@ class QuestionSeeder extends Seeder
      */
     public function run()
     {
-        /**
-         * Insert the dummy data into the questions table
+
+        // Use the factory to create a Faker\Generator instance.
+        $faker = \Faker\Factory::create('en_NG');
+
+         /**
+         * Loop through and insert the dummy data into the users table
          */
-
-         // Array of dummy questions
-        $questions = [
-            'How can I make Ewa Aganyi?',
-            'What is the most effective way to master bible prophecy?',
-            'How can I solve for the net force in this problem?',
-            'How can I resolve the div of a vector'
-         ];
-
-         // Get all the users
-         $users = User::all();
-
-         // Loop through the users and insert the data
-         foreach ($users as $user) {
+        for ($i = 0; $i < 10; $i++) {
             Question::create([
-                // 'user_id' => getUsersId(),
-                'user_id' => $user->id,
-                'question_title' => $questions[rand(0, 2)],
-                'question_text_area' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ante orci, convallis quis vestibulum a, tristique quis purus.',
-                'question_attachment_url' => 'Gravatar.png',
-                'question_file' => 'Gravatar.png',
+                'user_id' => rand(1, 10),
+                'question_title' => $faker->sentence(rand(10, 14), true),
+                'question_text_area' => $faker->text(rand(20, 500)),
+                'question_attachment_url' => $faker->imageUrl(),
+                'question_file' => $faker->image('/tmp', 640, 480),
              ]);
-         }         
+        }
     }
 }
 
