@@ -75,4 +75,8 @@ class User extends Authenticatable
     public function user_specializations () {
         return $this->belongsToMany('App\Specialization');
     }
+
+    public function user_interests () {
+        return $this->belongsToMany('App\Interest');
+    }
 }
