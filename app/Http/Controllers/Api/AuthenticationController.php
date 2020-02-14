@@ -30,6 +30,7 @@ class AuthenticationController extends Controller
                 'clint' =>'required'*/
             ]
         );
+        
         if($validator->fails()) {
             return response()->json(['status' => 'FAIL', 'message' => $validator->errors()], 406);
         }

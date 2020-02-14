@@ -64,9 +64,6 @@ class User extends Authenticatable
     public function votes(){
         return $this->hasMany(Vote::class);
     }
-    public function interest(){
-        return $this->belongsTo(Interest::class);
-    }
 
     /**
      * Establish users table relationship to the user_meta table

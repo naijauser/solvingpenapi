@@ -17,8 +17,4 @@ class Interest extends Model
     ];
 
 
-    public function users(){
-        return $this->hasMany(User::class);
-    }
-
 }
