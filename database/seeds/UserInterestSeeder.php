@@ -16,28 +16,28 @@ class UserInterestSeeder extends Seeder
          * Insert the dummy data into the question_specialization table
          */
         UserInterest::create([
-            'specialization_id' => 2,
-            'question_id' => 3,
+            'interest_id' => 2,
+            'user_id' => 3,
         ]);
 
         UserInterest::create([
-            'specialization_id' => 2,
-            'question_id' => 1,
+            'interest_id' => 2,
+            'user_id' => 1,
         ]);
 
         UserInterest::create([
-            'specialization_id' => 3,
-            'question_id' => 1,
+            'interest_id' => 3,
+            'user_id' => 1,
         ]);
 
         UserInterest::create([
-            'specialization_id' => 2,
-            'question_id' => 3,
+            'interest_id' => 2,
+            'user_id' => 3,
         ]);
 
         UserInterest::create([
-            'specialization_id' => 3,
-            'question_id' => 1,
+            'interest_id' => 3,
+            'user_id' => 1,
         ]);
 
     }
