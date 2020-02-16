@@ -15,7 +15,6 @@ class VoteSeeder extends Seeder
         /**
          * Insert dummy data into the votes table
          */
-
          for ($i = 0; $i < 10; $i++) {
             Vote::Create([
                'user_id' => rand(1, 10),

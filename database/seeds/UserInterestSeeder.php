@@ -15,30 +15,11 @@ class UserInterestSeeder extends Seeder
          /**
          * Insert the dummy data into the question_specialization table
          */
-        UserInterest::create([
-            'interest_id' => 2,
-            'user_id' => 3,
-        ]);
-
-        UserInterest::create([
-            'interest_id' => 2,
-            'user_id' => 1,
-        ]);
-
-        UserInterest::create([
-            'interest_id' => 3,
-            'user_id' => 1,
-        ]);
-
-        UserInterest::create([
-            'interest_id' => 2,
-            'user_id' => 3,
-        ]);
-
-        UserInterest::create([
-            'interest_id' => 3,
-            'user_id' => 1,
-        ]);
-
+        for ($i = 0; $i < 10; $i++) {
+            UserInterest::create([
+                'interest_id' => rand(1, 10),
+                'user_id' => rand(1, 10),
+            ]);
+        }
     }
 }
