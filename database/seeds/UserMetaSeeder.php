@@ -23,8 +23,7 @@ class UserMetaSeeder extends Seeder
          */
         for ($i = 0; $i < 10; $i++) {
             UserMeta::create([
-                'user_id' => rand(1, 10),
-                'interest_id' => rand(1, 10), 
+                'user_id' => rand(1, 10), 
                 'profile_pic' => $faker->imageUrl(),
                 'date_of_birth' => $faker->dateTimeThisCentury->format('Y-m-d'),
                 'website' => $faker->domainName,

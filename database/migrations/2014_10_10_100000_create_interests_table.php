@@ -16,7 +16,7 @@ class CreateInterestsTable extends Migration
         Schema::create('interests', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('interest_description');
-            $table->string('interest_name');
+            $table->string('interest_name')->unique();
         });
     }
 
