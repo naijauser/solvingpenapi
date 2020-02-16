@@ -16,6 +16,13 @@ class Specialization extends Model
         'specialization_description',
     ];
 
+    /**
+         * Indicates if the model should be timestamped
+         * 
+         * @var boolean
+         */
+        public $timestamps = false;
+
     public function questions(){
         return $this->belongsToMany(Question::class);
     }

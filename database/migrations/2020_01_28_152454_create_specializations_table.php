@@ -18,7 +18,6 @@ class CreateSpecializationsTable extends Migration
             $table->bigIncrements('id');
             $table->string('specialization_title')->nullable(false);
             $table->string('specialization_description')->nullable();
-            $table->timestamps();
         });
     }
 
