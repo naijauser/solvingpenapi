@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Schema;
 use App\UserMeta;
 use App\User;
 use App\Question;
@@ -27,28 +28,27 @@ class UserController extends Controller
     }
 
     public function updateUserDetails (Request $request) {
-        // Array of columns that can be updated from the User model
-        $canUpdateInUser = [
-            'firstName', 
-            'lastName',
-            'email'
-        ];
-
-        // Array of columns that can be updated from the UserMeta model 
-        $canUpdateInUserMeta = [
-            
-        ];
-
         // $requestArray = $request->all();
         $requestData = $request->all();
 
-        foreach($requestData as $key => $value) {
-            echo $key . ' ' . $value . '<br>';
-        }
+        
+        
+        // foreach($requestData as $key => $value) {
+        //     echo $key . ' ' . $value . '<br>';
+        // }
+
+        $getModelTable = with(new User)->getTable();
+        $hasColumn = Schema::hasColumn($getModelTable, 'email');
+
         //  var_dump($requestData);
 
         // return response()->json(['user' => $requestArray], 200);
-        return ["data" => $requestData, "type" => getType($requestData)];
+        return [
+            "data" => $requestData, 
+            "type" => getType($requestData),
+            "modelTable" => $getModelTable,
+            "hasColumn" => $hasColumn
+        ];
     }
 
 
