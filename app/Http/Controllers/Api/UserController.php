@@ -16,10 +16,17 @@ class UserController extends Controller
     private $statusOk = 'OK';
 
 
-    public function getMyDetails (Request $request){
+    public function getUserDetails (Request $request, $id){
 
         // retrieve the instance of that user
         $user = Auth::user();
+
+        // Verify that id passed is that of logged in user
+        if ($user->id != $id) {
+            return response()->json([
+                'message' => 'Operation not acceptable.'
+            ], 406);
+        }
 
         //Get the other user details
         $userMeta = UserMeta::where('user_id', $user->id)->first();
@@ -27,7 +34,17 @@ class UserController extends Controller
         return response()->json(['user' => $user, 'userMeta' => $userMeta], 200);
     }
 
-    public function updateMyDetails (Request $request) {
+    public function updateUserDetails (Request $request, $id) {
+        
+        // Get authenticated user
+        $user = Auth::user();
+
+        // Verify that id passed is that of logged in user
+        if ($user->id != $id) {
+            return response()->json([
+                'message' => 'Operation not acceptable.'
+            ], 406);
+        }
 
         // Array of columns which should not be updated by the client
         $noUpdateColumns = [
@@ -38,9 +55,6 @@ class UserController extends Controller
             'updated_at',
             'remember_token'
         ];
-
-        // Get authenticated user
-        $user = Auth::user();
 
         // Grab the request body
         $requestData = $request->all();
@@ -83,7 +97,7 @@ class UserController extends Controller
      *  @return int
      * 
      */
-    public function getMyAskedQuestions (Request $request) {
+    public function getAskedQuestions (Request $request) {
 
     }
 
@@ -93,7 +107,7 @@ class UserController extends Controller
      *  @return int
      * 
      */
-    public function getMyAnsweredQuestions (Request $request) {
+    public function getAnsweredQuestions (Request $request) {
         //
     }
 

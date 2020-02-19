@@ -20,8 +20,10 @@ use Illuminate\Http\Request;
 
 Route::group(['middleware' => 'auth:api'], function () {
     // to put all routes that needs authentication
-    Route::get('/me', 'Api\UserController@getMyDetails');
-    Route::post('/me/update', 'Api\UserController@updateMyDetails');
+    Route::get('/user/{id}', 'Api\UserController@getUserDetails');
+    Route::post('/user/update/{id}', 'Api\UserController@updateUserDetails');
+    // Route::post('/user/questions/{id}', 'Api\UserController@updateUserDetails');
+    // Route::post('/user/answers/{id}', 'Api\UserController@updateUserDetails');
 
     Route::get('email/resend', 'Api\VerificationApiController@resend')->name('verificationapi.resend');
 });
