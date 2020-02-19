@@ -27,28 +27,53 @@ class UserController extends Controller
         return response()->json(['user' => $user, 'userMeta' => $userMeta], 200);
     }
 
-    public function updateUserDetails (Request $request) {
-        // $requestArray = $request->all();
+    public function updateMyDetails (Request $request) {
+
+        // Array of columns which should not be updated by the client
+        $noUpdateColumns = [
+            'id', 
+            'email_verified_at',
+            'password',
+            'created_at',
+            'updated_at',
+            'remember_token'
+        ];
+
+        // Get authenticated user
+        $user = Auth::user();
+
+        // Grab the request body
         $requestData = $request->all();
 
-        
-        
-        // foreach($requestData as $key => $value) {
-        //     echo $key . ' ' . $value . '<br>';
-        // }
-
+        // Get the table name associated with the User model
         $getModelTable = with(new User)->getTable();
-        $hasColumn = Schema::hasColumn($getModelTable, 'email');
 
-        //  var_dump($requestData);
+        // Loop through the request body and verify that
+        // the request keys tally with the column name
+        foreach($requestData as $key => $value) {
+            // echo $key . ' ' . $value . '<br>';
 
-        // return response()->json(['user' => $requestArray], 200);
-        return [
-            "data" => $requestData, 
-            "type" => getType($requestData),
-            "modelTable" => $getModelTable,
-            "hasColumn" => $hasColumn
-        ];
+            // Check if table has column name $key
+            $hasColumn = Schema::hasColumn($getModelTable, $key);
+
+            if ($hasColumn) {
+                if (in_array($key, $noUpdateColumns)) {
+                    return response()->json([
+                        'message' => 'Column name ' . $key . ' not acceptable.'
+                    ], 406);
+                } else {
+                    $user->$key = $value;
+                }
+            } else {
+                return response()->json(['message' => 'Column name ' 
+                    . $key . 
+                    ' does not exist in the table. Please refer to the API docs.'], 406);
+            }
+        }
+        $user->updated_at = now();
+        $user->save();
+
+        return response()->json(['status' => 'updated'], 200);
     }
 
 

@@ -17,10 +17,11 @@ use Illuminate\Http\Request;
     return $request->user();
 });*/
 
+
 Route::group(['middleware' => 'auth:api'], function () {
     // to put all routes that needs authentication
     Route::get('/me', 'Api\UserController@getMyDetails');
-    Route::post('/me/update', 'Api\UserController@updateUserDetails');
+    Route::post('/me/update', 'Api\UserController@updateMyDetails');
 
     Route::get('email/resend', 'Api\VerificationApiController@resend')->name('verificationapi.resend');
 });
