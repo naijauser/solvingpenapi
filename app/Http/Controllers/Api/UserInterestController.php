@@ -5,7 +5,18 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class UserInterestController extends Controller
-{
-    //
+class UserInterestController extends Controller {
+    private $statusOk = 'OK';
+
+    public function getRelationship ($id) {
+
+    }
+
+    public function addRelationship (Request $request, $id) {
+
+    }
+
+    public function removeRelationship (Request $request, $id) {
+
+    }
 }

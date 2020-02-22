@@ -8,11 +8,15 @@ use Illuminate\Http\Request;
 class QuestionSpecializationController extends Controller {
     private $statusOk = 'OK';
 
-    public function addRelationship () {
+    public function getRelationship ($id) {
 
     }
 
-    public function removeRelationship () {
+    public function addRelationship (Request $request, $id) {
+
+    }
+
+    public function removeRelationship (Request $request, $id) {
 
     }
 }
