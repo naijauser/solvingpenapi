@@ -11,4 +11,12 @@ class SpecializationController extends Controller {
     public function addSpecialization () {
         
     }
+
+    public function updateSpecialization () {
+
+    }
+
+    public function deleteSpecialization () {
+        
+    }
 }
