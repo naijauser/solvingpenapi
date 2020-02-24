@@ -21,8 +21,12 @@ use Illuminate\Http\Request;
 Route::group(['middleware' => 'auth:api'], function () {
     // to put all routes that needs authentication
     Route::get('/user/{id}', 'Api\UserController@getUserDetails');
+
     Route::post('/user/update/{id}', 'Api\UserController@updateUserDetails');
+
     Route::get('/user/questions/{userId}', 'Api\QuestionController@getQuestions');
+
+    Route::get('/user/question/{questionId}', 'Api\QuestionController@getQuestion');
     // Route::post('/user/answers/{id}', 'Api\UserController@updateUserDetails');
 
     Route::get('email/resend', 'Api\VerificationApiController@resend')->name('verificationapi.resend');
@@ -37,6 +41,5 @@ Route::get('account/verify/{id}', 'Api\VerificationApiController@verify')->name(
 
 Route::fallback(function(){
     return response()->json([
-        'error' => 'Page Not Found. This could be as a result of an error in the url, 
-                        or a wrong request method if the endpoint does not require authentication.'], 404);
+        'message' => 'Page Not Found. This could be as a result of an error in the url, or a wrong request method if the endpoint does not require authentication.'], 404);
 });
