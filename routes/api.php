@@ -22,7 +22,7 @@ Route::group(['middleware' => 'auth:api'], function () {
     // to put all routes that needs authentication
     Route::get('/user/{id}', 'Api\UserController@getUserDetails');
     Route::post('/user/update/{id}', 'Api\UserController@updateUserDetails');
-    // Route::post('/user/questions/{id}', 'Api\UserController@updateUserDetails');
+    Route::get('/user/questions/{userId}', 'Api\QuestionController@getQuestions');
     // Route::post('/user/answers/{id}', 'Api\UserController@updateUserDetails');
 
     Route::get('email/resend', 'Api\VerificationApiController@resend')->name('verificationapi.resend');
