@@ -24,9 +24,11 @@ Route::group(['middleware' => 'auth:api'], function () {
 
     Route::post('/user/update/{id}', 'Api\UserController@updateUserDetails');
 
-    Route::get('/user/questions/{userId}', 'Api\QuestionController@getQuestions');
+    Route::get('/questions/{userId}', 'Api\QuestionController@getQuestions');
 
-    Route::get('/user/question/{questionId}', 'Api\QuestionController@getQuestion');
+    Route::get('/question/{questionId}', 'Api\QuestionController@getQuestion');
+
+    Route::post('/question/delete/{questionId}', 'Api\QuestionController@deleteQuestion');
     // Route::post('/user/answers/{id}', 'Api\UserController@updateUserDetails');
 
     Route::get('email/resend', 'Api\VerificationApiController@resend')->name('verificationapi.resend');
