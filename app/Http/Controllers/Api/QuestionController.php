@@ -10,9 +10,9 @@ class QuestionController extends Controller {
     private $statusOk = 'OK';
 
     public function getQuestions (Request $request, $userId) {
-        // $userQuestions = Question::where('user_id', $userId)->get();
+        $userQuestions = Question::where('user_id', $userId)->get();
 
-        return response()->json(['status' => $statusOk]);
+        return response()->json(['status' => $this->statusOk]);
     }
 
     public function getQuestion ($questionId) {

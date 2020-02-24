@@ -16,7 +16,7 @@ class UserController extends Controller
     private $statusOk = 'OK';
     private $statusUpdated = 'updated';
 
-    public function getUserDetails (Request $request, $id){
+    public function getUserDetails ($id){
 
         // retrieve the instance of that user
         $user = User::where('id', $id)->first();
