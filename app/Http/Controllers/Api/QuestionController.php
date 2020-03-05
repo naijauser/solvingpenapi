@@ -27,7 +27,7 @@ class QuestionController extends Controller {
         $requestData = $request->all();
 
         // Get the table name associated with the User model
-        $getModelTable = with(new User)->getTable();
+        $getModelTable = with(new Question)->getTable();
 
         // Loop through the request body and verify that
         // the request keys tally with the column name
