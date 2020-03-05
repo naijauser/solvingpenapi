@@ -14,24 +14,25 @@ class UserController extends Controller
 {
     //
     private $statusOk = 'OK';
+    private $statusUpdated = 'updated';
 
-
-    public function getUserDetails (Request $request, $id){
+    public function getUserDetails ($id){
 
         // retrieve the instance of that user
-        $user = Auth::user();
+        $user = User::where('id', $id)->first();
 
-        // Verify that id passed is that of logged in user
-        if ($user->id != $id) {
-            return response()->json([
-                'message' => 'Operation not acceptable.'
-            ], 406);
+        if ($user) {
+            //Get the other user details
+            $userMeta = UserMeta::where('user_id', $user->id)->first();
+
+            return response()->json(
+                [
+                    'status' => $this->statusOk, 
+                    'data' => ['user' => $user, 'userMeta' => $userMeta]
+                ], 200);
+        } else {
+            return response()->json(['message' => 'User not found'], 404);
         }
-
-        //Get the other user details
-        $userMeta = UserMeta::where('user_id', $user->id)->first();
-
-        return response()->json(['user' => $user, 'userMeta' => $userMeta], 200);
     }
 
     public function updateUserDetails (Request $request, $id) {
@@ -87,28 +88,7 @@ class UserController extends Controller
         $user->updated_at = now();
         $user->save();
 
-        return response()->json(['status' => 'updated'], 200);
-    }
-
-
-    /**
-     *  Grab all the questions asked by user
-     * 
-     *  @return int
-     * 
-     */
-    public function getAskedQuestions (Request $request) {
-
-    }
-
-    /**
-     *  Grab all the questions answered by user
-     * 
-     *  @return int
-     * 
-     */
-    public function getAnsweredQuestions (Request $request) {
-        //
+        return response()->json(['status' => $this->statusUpdated], 200);
     }
 
 }

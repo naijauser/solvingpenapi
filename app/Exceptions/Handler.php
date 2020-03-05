@@ -57,45 +57,45 @@ class Handler extends ExceptionHandler
      *
      * @throws \Exception
      */
-    // public function render($request, Exception $e)
-    // {
-    //     if ($e instanceof ModelNotFoundException) {
-    //         return response()->json([
-    //             'error' => 'Entry for '.str_replace('App\\', '', $e->getModel()).' not found'
-    //         ], 404);
-    //     } elseif ($e instanceof AuthorizationException) {
-    //         return response()->json([
-    //             'error' => 'Authorization failed'
-    //         ], 401 );
-    //     } elseif ($e instanceof TokenMismatchException) {
-    //         return response()->json([
-    //             'error' => 'Token mismatch!'
-    //         ], 401);
-    //     } elseif ($e instanceof SuspiciousOperationException) {
-    //         return response()->json([
-    //             'error' => 'Authentication Error'
-    //         ], 400);
-    //     } elseif ($e instanceof MethodNotAllowedHttpException) {
-    //         return response()->json([
-    //             'error' => 'Method not allowed'
-    //         ], 405);
-    //     }  elseif ($e instanceof AuthenticationException) {
-    //         return response()->json([
-    //             'error' => 'Authentication failed'
-    //         ], 401);
-    //     } elseif ($e instanceof ValidationException) {
-    //         return response()->json([
-    //             'error' => 'Validation failed'
-    //         ], 403);
-    //     } elseif ($e instanceof HttpResponseException) {
-    //         return response()->json([
-    //             'error' => 'Http Response error'
-    //         ], 400);
-    //     }
+    public function render($request, Exception $e)
+    {
+        if ($e instanceof ModelNotFoundException) {
+            return response()->json([
+                'message' => 'Entry for '.str_replace('App\\', '', $e->getModel()).' not found'
+            ], 404);
+        } elseif ($e instanceof AuthorizationException) {
+            return response()->json([
+                'message' => 'Authorization failed'
+            ], 401 );
+        } elseif ($e instanceof TokenMismatchException) {
+            return response()->json([
+                'message' => 'Token mismatch!'
+            ], 401);
+        } elseif ($e instanceof SuspiciousOperationException) {
+            return response()->json([
+                'message' => 'Authentication Error'
+            ], 400);
+        } elseif ($e instanceof MethodNotAllowedHttpException) {
+            return response()->json([
+                'message' => 'Method not allowed'
+            ], 405);
+        }  elseif ($e instanceof AuthenticationException) {
+            return response()->json([
+                'message' => 'Authentication failed'
+            ], 401);
+        } elseif ($e instanceof ValidationException) {
+            return response()->json([
+                'message' => 'Validation failed'
+            ], 403);
+        } elseif ($e instanceof HttpResponseException) {
+            return response()->json([
+                'message' => 'Http Response error'
+            ], 400);
+        }
 
-    //     return response()->json([
-    //         'error' => 'An error occured'
-    //     ], 400);
+        return response()->json([
+            'error' => 'An error occured'
+        ], 400);
 
-    // }
+    }
 }

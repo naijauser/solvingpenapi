@@ -16,7 +16,7 @@ class AuthenticationController extends Controller
     //
     use VerifiesEmails;
 
-    private $successStatus  =   200;
+    private $statusOK  =   'OK';
 
     public function register_user(Request $request) {
 
@@ -32,7 +32,7 @@ class AuthenticationController extends Controller
         );
         
         if($validator->fails()) {
-            return response()->json(['status' => 'FAIL', 'message' => $validator->errors()], 406);
+            return response()->json(['message' => $validator->errors()], 406);
         }
 
         // collect inputs
@@ -45,7 +45,7 @@ class AuthenticationController extends Controller
 
         // check if email already registered
         if(!is_null(User::where('email', $request->email)->first())) {
-            return response()->json(['status' => 'FAIL', 'message' => 'Sorry! this email is already registered'], 406);
+            return response()->json(['message' => 'Sorry! this email is already registered'], 406);
         }
 
         // create and return data
@@ -55,10 +55,8 @@ class AuthenticationController extends Controller
 
         //if the mail was successfully sent do below
         // $success['token'] = $user->createToken('token')->accessToken;
-        $success['status'] = 'OK';
-        $success['user'] = $user;
 
-        return response()->json([ 'status' => 'OK', 'success' =>  $success], $this->successStatus);
+        return response()->json([ 'status' => $this->statusOK, 'data' =>  $user], 200);
     }
 
     public function login_user(Request $request) {
@@ -68,9 +66,6 @@ class AuthenticationController extends Controller
             $user = Auth::user();
 
             $token = $user->createToken('token')->accessToken;
-            $success['status'] = 'OK';
-            $success['token'] = $token;
-            $success['user'] = $user;
 
             // if($user->email_verified_at !== NULL){
             //     $success['message'] = "Success! you are logged in successfully";
@@ -78,10 +73,14 @@ class AuthenticationController extends Controller
             // }else{
             //     return response()->json(['error'=>'Please Verify Email'], 401);
             // }
-            return response()->json(['success' => $success ], $this->successStatus);
+            return response()->json(
+                [
+                    'status' => $this->statusOK, 
+                    'data' => [ 'token'=> $token, 'user' => $user]
+                ], 200);
         }
         else {
-            return response()->json(['error'=>'Login failed'], 401);
+            return response()->json(['message'=>'Login failed'], 401);
         }
     }
 
