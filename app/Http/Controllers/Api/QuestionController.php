@@ -38,19 +38,24 @@ class QuestionController extends Controller {
             $hasColumn = Schema::hasColumn($getModelTable, $key);
 
             if ($hasColumn) {
+                // check for presence of columns we do not desire to be 
+                // updated in the returned data
                 if (in_array($key, $noUpdateColumns)) {
                     return response()->json([
                         'message' => 'Column name ' . $key . ' not acceptable.'
                     ], 406);
                 } else {
+                    // assign the value passed for the particular column
                     $user->$key = $value;
                 }
             } else {
+                // return error message since message does not exist
                 return response()->json(['message' => 'Column name ' 
                     . $key . 
                     ' does not exist in the table. Please refer to the API docs.'], 406);
             }
         }
+        // manually assign the remaining column values
         $user->user_id = $user->id;
         $user->updated_at = now();
         $user->created_at = now();
@@ -60,6 +65,7 @@ class QuestionController extends Controller {
     } 
 
     public function getQuestions ($userId) {
+        // get array of user questions
         $userQuestions = Question::where('user_id', $userId)->get();
 
         if (sizeof($userQuestions) == 0) {
