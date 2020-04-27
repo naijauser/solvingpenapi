@@ -82,8 +82,6 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 
 
-
-
 ## Solving Pen API
 
 The Solving Pen API is the backend of a Laravel powered Question and Answer (Q & A) platform. Solving Pen aims to provide a means by which students can help other students in the same university.
